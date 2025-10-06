@@ -1,5 +1,5 @@
 <h1 align="center">
-Supesquire
+QuantRead
 </h1>
 
 <div align="center">
@@ -10,7 +10,7 @@ Supesquire
 
 # 📚 Overview
 
-Supesquire is a modern `Next.js` application powered by **HuggingFace** and **Supabase**. It enables intelligent conversations with your PDF documents in real-time using advanced AI models. The application leverages HuggingFace's free inference API with models like `tiiuae/falcon-7b-instruct` for chat responses and `sentence-transformers/all-MiniLM-L6-v2` for embeddings, making it cost-effective and powerful.
+QuantRead is a modern `Next.js` application powered by **HuggingFace** and **Supabase**. It enables intelligent conversations with your PDF documents in real-time using advanced AI models. The application leverages HuggingFace's free inference API with models like `tiiuae/falcon-7b-instruct` for chat responses and `sentence-transformers/all-MiniLM-L6-v2` for embeddings, making it cost-effective and powerful.
 
 ## ✨ Key Features
 
@@ -38,7 +38,7 @@ Supesquire is a modern `Next.js` application powered by **HuggingFace** and **Su
 
 ## 🏷️ Architecture
 
-```mermaid
+```
 graph TD
     A[User] --> B[Next.js Frontend]
     B --> C[Next.js API Routes]
@@ -76,7 +76,7 @@ graph TD
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd supesquire-main
+   cd QuantRead-main
    ```
 
 2. **Install dependencies**
@@ -87,59 +87,69 @@ graph TD
    ```
 
 3. **Environment Configuration**
-   Create a `.env` file in the root directory with the following variables:
    
-   ```env
-   # HuggingFace Configuration
-   HF_API_KEY=your_huggingface_api_token
-   
-   # Supabase Configuration
-   NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-   NEXT_PUBLIC_SUPABASE_BUCKET=documents
-   NEXT_PUBLIC_SUPABASE_DOCUMENTS_TABLE=documents
-   NEXT_PUBLIC_SUPABASE_CHAT_RECORDS_TABLE=chat_records
-   NEXT_PUBLIC_SUPABASE_VECTOR_MATCHING_FUNCTION=match_documents
-   NEXT_PUBLIC_SUPABASE_DOCUMENT_CHUNKS_TABLE=document_chunks
+   Copy the example environment file and configure your API keys:
+   ```bash
+   cp .env.example .env
    ```
+   
+   Then edit the `.env` file with your actual API keys and configuration values. See the [Environment Variables](#environment-variables) section below for detailed setup instructions.
 
-4. **Start the development server**
+4. **Database Setup**
+   
+   Execute the SQL files in your Supabase project:
+   - Run `supabase.sql` to create the initial database structure
+   - Run `database-complete-fix.sql` if you need guest mode support
+
+5. **Start the development server**
    ```bash
    npm run dev
    # or
    yarn dev
    ```
 
-5. **Open your browser**
+6. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000) to see the application
+
+## Environment Variables
+
+The application requires several environment variables to function properly. A template file `.env.example` is provided with all required variables.
+
+### Required Variables:
+
+- `HF_API_KEY`: Your HuggingFace API token from [Settings > Access Tokens](https://huggingface.co/settings/tokens)
+- `NEXT_PUBLIC_SUPABASE_URL`: Your Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_API_KEY`: Your Supabase anonymous key
+- `SUPABASE_SERVICE_ROLE_KEY`: Your Supabase service role key (for server-side operations)
+
+### Database Configuration:
+
+- `NEXT_PUBLIC_SUPABASE_BUCKET`: Storage bucket name (default: "documents")
+- `NEXT_PUBLIC_SUPABASE_DOCUMENTS_TABLE`: Documents table name (default: "documents")
+- `NEXT_PUBLIC_SUPABASE_CHAT_RECORDS_TABLE`: Chat records table name (default: "chat_records")
+- `NEXT_PUBLIC_SUPABASE_DOCUMENT_CHUNKS_TABLE`: Document chunks table name (default: "document_chunks")
+
+### Optional Variables:
+
+- `NEXT_PUBLIC_ORIGIN`: Application origin URL (default: "http://localhost:3000")
+- `NEXT_PUBLIC_OPENAI_API_KEY`: OpenAI API key (if using OpenAI instead of HuggingFace)
+
+⚠️ **Important**: Never commit your `.env` file to version control. The `.gitignore` file is configured to exclude all `.env*` files except `.env.example`.
 
 # 🐳 Docker Setup
 
-The project includes Docker support for containerized deployment:
+**Note**: Docker files have been removed from this repository to keep it clean for GitHub. If you need Docker support, you can create your own Dockerfile based on standard Next.js deployment practices.
 
-```bash
-# Build the Docker image
-docker build -t supesquire:latest .
-
-# Run with environment file
-docker run -p 3000:3000 --env-file .env supesquire:latest
-
-# Or run with individual environment variables
-docker run -p 3000:3000 \
-  -e HF_API_KEY=your_hf_key \
-  -e NEXT_PUBLIC_SUPABASE_URL=your_supabase_url \
-  -e NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_key \
-  supesquire:latest
-```
+For containerized deployment, refer to the [Next.js Docker documentation](https://nextjs.org/docs/deployment#docker-image).
 
 # 🌍 Deployment
 
 ## Vercel (Recommended)
 
-Supesquire is optimized for deployment on Vercel:
+QuantRead is optimized for deployment on Vercel:
 
 1. **Connect your repository** to [Vercel](https://vercel.com/)
-2. **Set environment variables** in your Vercel project settings
+2. **Set environment variables** in your Vercel project settings (use the same variables from your `.env.example` file)
 3. **Deploy** - Vercel will automatically build and deploy your application
 
 ```bash
@@ -374,10 +384,11 @@ If you encounter any issues or have questions:
 
 <div align="center">
 
-**Built with ❤️ by the Supesquire team**
+**Built with ❤️ by the QuantRead team**
 
 [Live Demo](https://your-demo-url.com) • [Documentation](https://your-docs-url.com) • [Report Bug](issues) • [Request Feature](issues)
 
 </div>
-#   Q u a n t a - R e a d  
+#   Q u a n t a - R e a d 
+ 
  
