@@ -114,5 +114,5 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 
 ---
 <div align="center">
-  Built with ❤️ by the Quanta Read Team
+  Built with ❤️ by Atharva
 </div>
