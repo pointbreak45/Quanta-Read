@@ -1,394 +1,118 @@
-<h1 align="center">
-QuantRead
-</h1>
-
 <div align="center">
-<p align="center">
-<img src="https://github.com/neel1996/supesquire/assets/47709856/2b97f1e7-6ec1-41e1-b3af-d73e1c48b4b4" alt="logo" style="text-align:center;" />
-</p>
+  <img src="https://github.com/neel1996/supesquire/assets/47709856/2b97f1e7-6ec1-41e1-b3af-d73e1c48b4b4" alt="Quanta Read Logo" width="150"/>
+  <h1>Quanta Read</h1>
+  <p>An intelligent "Chat with your PDF" application powered by Next.js, Supabase, and HuggingFace.</p>
+
+  <div>
+    <img src="https://img.shields.io/badge/Next.js-13+-black?style=for-the-badge&logo=next.js" alt="Next.js">
+    <img src="https://img.shields.io/badge/Supabase-DB-3ECF8E?style=for-the-badge&logo=supabase" alt="Supabase">
+    <img src="https://img.shields.io/badge/HuggingFace-Inference-yellow?style=for-the-badge&logo=huggingface" alt="Hugging Face">
+    <img src="https://img.shields.io/badge/Vercel-Deploy-black?style=for-the-badge&logo=vercel" alt="Vercel">
+  </div>
+  <br/>
 </div>
 
-# 📚 Overview
+> **Quanta Read** enables you to have intelligent conversations with your PDF documents in real-time. It leverages HuggingFace's free inference API for powerful AI capabilities and Supabase for a secure, scalable backend.
 
-QuantRead is a modern `Next.js` application powered by **HuggingFace** and **Supabase**. It enables intelligent conversations with your PDF documents in real-time using advanced AI models. The application leverages HuggingFace's free inference API with models like `tiiuae/falcon-7b-instruct` for chat responses and `sentence-transformers/all-MiniLM-L6-v2` for embeddings, making it cost-effective and powerful.
+<div align="center">
+
+**[Live Demo](https://your-demo-url.com) • [Report a Bug](https://github.com/your-username/quanta-read/issues) • [Request a Feature](https://github.com/your-username/quanta-read/issues)**
+
+</div>
 
 ## ✨ Key Features
 
-- 🤖 **AI-Powered Chat**: Chat with your PDFs using HuggingFace's state-of-the-art language models
-- 📄 **Multi-PDF Support**: Upload and query multiple PDF documents simultaneously
-- 🔍 **Smart Search**: Vector-based semantic search across document content
-- 📝 **Auto-Summarization**: Automatic document summaries generated after upload
-- 💾 **Export Conversations**: Download chat history as TXT or JSON files
-- 🔒 **Secure Authentication**: User authentication and data protection via Supabase
-- ⚡ **Real-time Updates**: Live chat updates and document processing status
-- 🎨 **Modern UI**: Clean, responsive interface built with Material-UI
-
-> Built entirely with JavaScript/TypeScript for maximum accessibility
-
-# 🛠️ Tech Stack
-
-- **HuggingFace 🤗**: Free inference API for LLM chat responses and embeddings generation
-  - `tiiuae/falcon-7b-instruct` for conversational AI
-  - `sentence-transformers/all-MiniLM-L6-v2` for document embeddings
-- **Supabase 🛢️**: User authentication, PDF storage, real-time communication, document metadata, chat history, and vector database
-- **Langchain ⛓️**: Document processing, text splitting, prompt engineering, and LLM orchestration
-- **Next.js 13+ ⚛️**: Full-stack React framework with App Router, API routes, and server-side rendering
-- **Material-UI 🎨**: Component library for modern, responsive UI design
-- **Vercel 🚀**: Deployment platform optimized for Next.js applications
-
-## 🏷️ Architecture
-
-```
-graph TD
-    A[User] --> B[Next.js Frontend]
-    B --> C[Next.js API Routes]
-    C --> D[HuggingFace Inference API]
-    C --> E[Supabase Database]
-    C --> F[Supabase Storage]
-    E --> G[Vector Search]
-    E --> H[Chat History]
-    E --> I[Document Metadata]
-    F --> J[PDF Files]
-```
-
-# 🛢️ Prerequisites
-
-## HuggingFace Setup
-1. Create a free account at [HuggingFace](https://huggingface.co/)
-2. Generate an API key from [Settings > Access Tokens](https://huggingface.co/settings/tokens)
-3. The application uses HuggingFace's free inference API - no paid subscription required!
-
-## Supabase Setup
-1. Create a [Supabase project](https://supabase.com/dashboard/new)
-2. Enable [Row Level Security (RLS)](https://supabase.com/docs/guides/auth/row-level-security)
-3. Create a new user in your Supabase project with a valid email and password
-4. Execute the queries from [supabase.sql](supabase.sql) in Supabase's SQL Editor to create required tables and storage buckets
-
-# 🚀 Local Development Setup
-
-## Prerequisites
-- Node.js 18+ 
-- npm or yarn
-- Git
+-   🤖 **AI-Powered Chat**: Converse with your PDFs using state-of-the-art HuggingFace models.
+-   📄 **Multi-PDF Support**: Upload and query multiple PDF documents in a single session.
+-   🔍 **Semantic Search**: Find the most relevant information across all documents using vector search.
+-   📝 **Auto-Summarization**: Get automatic summaries for your documents right after upload.
+-   💾 **Export Conversations**: Download your chat history as TXT or JSON files.
+-   🔒 **Secure & Scalable**: Built on Supabase for robust user authentication, storage, and data security.
+-   🎨 **Modern UI**: A clean, responsive, and intuitive user interface built with Material-UI.
 
-## Installation Steps
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd QuantRead-main
-   ```
+## 🛠️ Tech Stack
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-3. **Environment Configuration**
-   
-   Copy the example environment file and configure your API keys:
-   ```bash
-   cp .env.example .env
-   ```
-   
-   Then edit the `.env` file with your actual API keys and configuration values. See the [Environment Variables](#environment-variables) section below for detailed setup instructions.
+-   **Frontend**: Next.js 13+ (App Router), Material-UI
+-   **Backend**: Supabase (Auth, Postgres DB, Storage, Vector DB)
+-   **AI/ML**: HuggingFace Inference API (`tiiuae/falcon-7b-instruct`, `sentence-transformers/all-MiniLM-L6-v2`)
+-   **Orchestration**: LangChain.js
+-   **Deployment**: Vercel
 
-4. **Database Setup**
-   
-   Execute the SQL files in your Supabase project:
-   - Run `supabase.sql` to create the initial database structure
-   - Run `database-complete-fix.sql` if you need guest mode support
-
-5. **Start the development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
-
-6. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000) to see the application
-
-## Environment Variables
-
-The application requires several environment variables to function properly. A template file `.env.example` is provided with all required variables.
-
-### Required Variables:
+## 🚀 Getting Started
 
-- `HF_API_KEY`: Your HuggingFace API token from [Settings > Access Tokens](https://huggingface.co/settings/tokens)
-- `NEXT_PUBLIC_SUPABASE_URL`: Your Supabase project URL
-- `NEXT_PUBLIC_SUPABASE_API_KEY`: Your Supabase anonymous key
-- `SUPABASE_SERVICE_ROLE_KEY`: Your Supabase service role key (for server-side operations)
+Follow these steps to set up and run the project locally.
 
-### Database Configuration:
+### Prerequisites
 
-- `NEXT_PUBLIC_SUPABASE_BUCKET`: Storage bucket name (default: "documents")
-- `NEXT_PUBLIC_SUPABASE_DOCUMENTS_TABLE`: Documents table name (default: "documents")
-- `NEXT_PUBLIC_SUPABASE_CHAT_RECORDS_TABLE`: Chat records table name (default: "chat_records")
-- `NEXT_PUBLIC_SUPABASE_DOCUMENT_CHUNKS_TABLE`: Document chunks table name (default: "document_chunks")
+-   **Node.js** (v18 or higher)
+-   **Git**
+-   A **HuggingFace Account** (for API key)
+-   A **Supabase Account** (for backend services)
 
-### Optional Variables:
+### Installation & Setup
 
-- `NEXT_PUBLIC_ORIGIN`: Application origin URL (default: "http://localhost:3000")
-- `NEXT_PUBLIC_OPENAI_API_KEY`: OpenAI API key (if using OpenAI instead of HuggingFace)
+1.  **Clone the Repository**
+    ```bash
+    git clone [https://github.com/your-username/quanta-read.git](https://github.com/your-username/quanta-read.git)
+    cd quanta-read
+    ```
 
-⚠️ **Important**: Never commit your `.env` file to version control. The `.gitignore` file is configured to exclude all `.env*` files except `.env.example`.
+2.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
 
-# 🐳 Docker Setup
+3.  **Set Up Environment Variables**
+    Copy the example environment file and fill it with your credentials.
+    ```bash
+    cp .env.example .env
+    ```
+    You will need to add your keys for HuggingFace and Supabase in the `.env` file.
 
-**Note**: Docker files have been removed from this repository to keep it clean for GitHub. If you need Docker support, you can create your own Dockerfile based on standard Next.js deployment practices.
+4.  **Set Up Supabase Database**
+    -   Log in to your Supabase dashboard and create a new project.
+    -   Navigate to the **SQL Editor**.
+    -   Open the `supabase.sql` file from this repository, copy its content, and run it in the SQL Editor to create the necessary tables and policies.
 
-For containerized deployment, refer to the [Next.js Docker documentation](https://nextjs.org/docs/deployment#docker-image).
+5.  **Run the Development Server**
+    ```bash
+    npm run dev
+    ```
 
-# 🌍 Deployment
+6.  **Open the App**
+    Navigate to `http://localhost:3000` in your browser.
 
-## Vercel (Recommended)
+## 🌍 Deployment
 
-QuantRead is optimized for deployment on Vercel:
+This project is optimized for deployment on **Vercel**.
 
-1. **Connect your repository** to [Vercel](https://vercel.com/)
-2. **Set environment variables** in your Vercel project settings (use the same variables from your `.env.example` file)
-3. **Deploy** - Vercel will automatically build and deploy your application
+1.  Push your code to a GitHub repository.
+2.  Connect your repository to your Vercel account.
+3.  Configure the same environment variables from your `.env` file in the Vercel project settings.
+4.  Deploy! Vercel will automatically handle the build process.
 
-```bash
-# Or deploy via Vercel CLI
-npm i -g vercel
-vercel --prod
-```
+## 🤝 Contributing
 
-## Other Platforms
+Contributions are welcome! If you'd like to help improve Quanta Read, please fork the repository and submit a pull request.
 
-- **Netlify**: Use `npm run build` and deploy the `.next` folder
-- **Railway**: Connect your GitHub repository
-- **Heroku**: Use the included Dockerfile
-- **DigitalOcean App Platform**: Deploy directly from GitHub
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
 
-# 📝 How to Use
+## 📜 License
 
-## 📄 Uploading Documents
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
-1. **Single PDF**: Drag and drop a PDF file onto the upload area
-2. **Multiple PDFs**: Select or drag multiple PDF files at once
-3. **Processing**: Wait for the application to extract text and generate embeddings
-4. **Auto-Summary**: Documents are automatically summarized after processing
+## 🙏 Acknowledgments
 
-## 💬 Chat Features
-
-### Smart Conversations
-- Ask questions about your uploaded documents
-- Get contextually relevant answers from the AI
-- Reference specific parts of your documents
-
-### Advanced Queries
-- **Lists**: "List the main features of..."
-- **Summaries**: "Summarize the key points about..."
-- **Code**: "Show me the code example for..."
-- **Comparisons**: "What are the differences between..."
-
-### Export Options
-- **Chat History**: Click the export button to download your conversation
-- **Formats**: Available in TXT and JSON formats
-- **Original PDF**: Download the original document anytime
-
-## 🔍 Search Functionality
-
-Use the global search to:
-- Find information across all your documents
-- Get quick answers without starting a full conversation
-- Locate specific topics or concepts
-
-# 📊 Features Deep Dive
-
-## Multi-PDF Support
-- Upload up to multiple PDFs simultaneously
-- Query across all documents in one conversation
-- Each document is independently processed and summarized
-
-## AI-Powered Summarization
-- Automatic summaries generated using HuggingFace LLM
-- Summaries stored in Supabase for quick access
-- Background processing doesn't block the UI
-
-## Vector Search
-- Semantic search using sentence transformers
-- Find relevant content even with different wording
-- Powered by Supabase's vector database capabilities
-
-## Real-time Updates
-- Live processing status updates
-- Real-time chat responses
-- Instant notifications for uploads and errors
-
-# 🔧 Troubleshooting
-
-## Common Issues
-
-### PDF Processing Errors
-- **Encrypted PDFs**: Remove password protection before uploading
-- **Scanned PDFs**: Use OCR tools to convert to searchable text first
-- **Large Files**: Files over 10MB may take longer to process
-
-### HuggingFace API Issues
-- **Rate Limits**: Free tier has usage limits - consider upgrading for production
-- **Model Availability**: Some models may have temporary downtime
-- **API Key**: Ensure your HF_API_KEY is valid and has proper permissions
-
-### Supabase Connection
-- **RLS Policies**: Ensure proper Row Level Security policies are set
-- **CORS**: Check CORS settings in Supabase dashboard
-- **Quotas**: Monitor your Supabase usage and quotas
-
-## Performance Tips
-
-- **Chunk Size**: Optimal PDF chunk size is 5000 characters
-- **Concurrent Uploads**: Limit simultaneous uploads to avoid API rate limits
-- **Browser**: Use modern browsers for best performance (Chrome, Firefox, Safari, Edge)
-
-# 📝 Usage Examples
-
-## Academic Research
-```
-User: "List the main methodologies used in this research paper"
-AI: "Based on the document, here are the main methodologies:
-• Quantitative analysis using statistical models
-• Qualitative interviews with 50 participants  
-• Literature review spanning 2010-2023
-• Cross-sectional survey design"
-```
-
-## Technical Documentation
-```
-User: "Show me how to implement the authentication flow"
-AI: "Here's the authentication implementation from the documentation:
-
-```javascript
-const authenticate = async (credentials) => {
-  const response = await fetch('/api/auth', {
-    method: 'POST',
-    body: JSON.stringify(credentials)
-  });
-  return response.json();
-};
-``` 
-
-This function handles user login by sending credentials to the auth endpoint."
-```
-
-## Legal Documents
-```
-User: "What are the key terms and conditions?"
-AI: "The main terms and conditions include:
-
-1. **Service Usage**: Limited to authorized users only
-2. **Data Protection**: Personal information handled per GDPR
-3. **Liability**: Company liability limited to subscription amount
-4. **Termination**: Either party may terminate with 30-day notice"
-```
-
-# 🔌 API Endpoints
-
-## Core Endpoints
-
-- **POST** `/api/extract-pdf` - Extract text content from uploaded PDF
-- **POST** `/api/process-document` - Process and store document with embeddings
-- **POST** `/api/inference` - Generate AI responses for chat queries
-- **POST** `/api/summarize` - Generate document summaries
-- **POST** `/api/export-chat` - Export conversation history
-- **POST** `/api/chat-records` - Fetch chat history for a document
-- **POST** `/api/search` - Global document search
-
-## Authentication
-- All endpoints require valid Supabase authentication
-- Users can only access their own documents and chat history
-
-# 👥 Contributing
-
-We welcome contributions! Here's how you can help:
-
-## Development Setup
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Make your changes and test thoroughly
-4. Commit your changes: `git commit -m 'Add amazing feature'`
-5. Push to the branch: `git push origin feature/amazing-feature`
-6. Open a Pull Request
-
-## Areas for Contribution
-- 🔍 **PDF Processing**: Improve PDF text extraction and parsing
-- 🤖 **AI Models**: Experiment with different HuggingFace models
-- 🎨 **UI/UX**: Enhance the user interface and experience
-- 🚀 **Performance**: Optimize application performance and loading times
-- 📝 **Documentation**: Improve documentation and examples
-- 🔧 **Testing**: Add comprehensive tests for components and API routes
-
-## Code Style
-- Use ESLint and Prettier for code formatting
-- Follow React best practices and hooks patterns
-- Write descriptive commit messages
-- Add comments for complex logic
-
-# 📋 Changelog
-
-## Version 2.0.0 (Latest)
-
-### ✨ New Features
-- **HuggingFace Integration**: Migrated from OpenAI to HuggingFace free inference API
-- **Multi-PDF Upload**: Support for uploading and processing multiple PDFs simultaneously
-- **Auto-Summarization**: Automatic document summaries generated after upload
-- **Chat Export**: Download conversation history in TXT or JSON format
-- **Enhanced Error Handling**: User-friendly error messages and better error recovery
-
-### 🔧 Technical Improvements
-- Fixed DOM manipulation errors in PDF processing
-- Resolved webpack canvas dependencies issues
-- Updated Langchain imports to latest version
-- Improved build system and deployment readiness
-- Added comprehensive error handling and logging
-
-### 🐛 Bug Fixes
-- Fixed `removeChild` DOM manipulation errors
-- Resolved PDF.js canvas compatibility issues
-- Fixed embedding generation and vector search
-- Improved chat history persistence
-
-## Version 1.0.0 (Previous)
-- Initial release with OpenAI integration
-- Basic PDF upload and chat functionality
-- Supabase authentication and storage
-- Vector search and document Q&A
-
-# 📦 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-# 🙏 Acknowledgments
-
-- **HuggingFace** for providing free AI inference APIs
-- **Supabase** for the excellent backend-as-a-service platform
-- **Vercel** for seamless Next.js deployment
-- **Langchain** for AI orchestration and document processing tools
-- **Material-UI** for the beautiful component library
-
-# 📞 Support
-
-If you encounter any issues or have questions:
-
-1. **Check the [Troubleshooting](#-troubleshooting) section**
-2. **Search existing [Issues](issues) on GitHub**
-3. **Create a new issue** with detailed information about your problem
-4. **Join our community discussions**
+-   **HuggingFace** for their incredible free inference APIs.
+-   **Supabase** for providing a powerful and easy-to-use backend platform.
+-   **Vercel** for seamless deployment and hosting.
+-   **LangChain** for simplifying AI orchestration.
 
 ---
-
 <div align="center">
-
-**Built with ❤️ by the QuantRead team**
-
-[Live Demo](https://your-demo-url.com) • [Documentation](https://your-docs-url.com) • [Report Bug](issues) • [Request Feature](issues)
-
+  Built with ❤️ by the Quanta Read Team
 </div>
-#   Q u a n t a - R e a d 
- 
- 
