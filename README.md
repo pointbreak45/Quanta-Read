@@ -20,7 +20,7 @@
 
 </div>
 
-## 🔍 Preview
+## 🔍 Demo Preview
 ![QuantaRead Demo Screenshot](./components/ScreenshotofQuantaRead.png)
 
 ## ✨ Key Features
