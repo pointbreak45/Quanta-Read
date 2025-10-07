@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/neel1996/supesquire/assets/47709856/2b97f1e7-6ec1-41e1-b3af-d73e1c48b4b4" alt="Quanta Read Logo" width="150"/>
+  
   <h1>Quanta Read</h1>
   <p>An intelligent "Chat with your PDF" application powered by Next.js, Supabase, and HuggingFace.</p>
 
