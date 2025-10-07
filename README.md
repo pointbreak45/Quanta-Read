@@ -21,7 +21,7 @@
 </div>
 
 ## 🔍 Preview
-components/ScreenshotofQuantaRead.png
+(components/ScreenshotofQuantaRead.png)
 
 ## ✨ Key Features
 
