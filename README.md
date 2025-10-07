@@ -20,6 +20,9 @@
 
 </div>
 
+## 🔍 Preview
+components/ScreenshotofQuantaRead.png
+
 ## ✨ Key Features
 
 -   🤖 **AI-Powered Chat**: Converse with your PDFs using state-of-the-art HuggingFace models.
